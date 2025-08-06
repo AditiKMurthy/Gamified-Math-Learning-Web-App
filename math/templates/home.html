@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSpace Math - Home</title>
+    
+    <!-- Google Fonts - Orbitron for futuristic vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+            <!-- Custom CSS and JS -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header with glowing space-themed gradient background -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">iSpace Math</h1>
+            <nav class="navigation">
+                <ul class="nav-links">
+                                    <li><a href="/home" class="nav-link">Home</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/" class="nav-link" id="logout-link">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div id="content">
+            <!-- Welcome Section -->
+            <section class="welcome-section space-card">
+                <h2 class="cosmic-text dashboard-title">Welcome to iSpace Math</h2>
+                
+                <!-- Login Form (shown when not logged in) -->
+                <div id="login-form" class="login-container">
+                    <h3 class="section-title">Begin Your Journey</h3>
+                    <form class="login-form" id="username-form">
+                        <div class="form-group">
+                            <label for="username" class="form-label">Enter Your Name:</label>
+                            <input type="text" id="username" name="username" class="form-input" 
+                                   placeholder="Your cosmic name" required>
+                        </div>
+                        <button type="submit" class="action-button">Launch into Space</button>
+                    </form>
+                </div>
+                
+                <!-- Welcome Message (shown when logged in) -->
+                <div id="welcome-message" class="welcome-message" style="display: none;">
+                </div>
+            </section>
+
+            <!-- Math Topics Section -->
+            <section class="topics-section"><br><br>
+                <h2 class="dashboard-title">Mathematical Planets</h2>
+                <p class="section-description">
+                    Choose your destination and difficulty level to begin your mathematical adventure.
+                </p>
+                
+                <!-- Planets Grid -->
+                <div class="planets-flex-container">
+                    <div class="planets-row">
+                        <div class="planet-with-label" data-topic="algebra">
+                            <div class="planet-visual"><img src="../assets/earth.png" alt="Earth" /></div>
+                            <div class="math-planet-title">Algebra</div>
+                        </div>
+                        <div class="planet-with-label" data-topic="triangles">
+                            <div class="planet-visual"><img src="../assets/mars_img.jpg" alt="Mars" /></div>
+                            <div class="math-planet-title">Triangles</div>
+                        </div>
+                        <div class="planet-with-label" data-topic="surface-area-and-volumes">
+                            <div class="planet-visual"><img src="../assets/jupiter_img.jpg" alt="Jupiter" /></div>
+                            <div class="math-planet-title">Surface Area and Volumes</div>
+                        </div>
+                    </div>
+                    <div class="planets-row">
+                        <div class="planet-with-label" data-topic="real-numbers">
+                            <div class="planet-visual"><img src="../assets/saturn_img.jpg" alt="Saturn" /></div>
+                            <div class="math-planet-title">Real Numbers</div>
+                        </div>
+                        <div class="planet-with-label" data-topic="circles">
+                            <div class="planet-visual"><img src="../assets/neptune.jpg" alt="Neptune" /></div>
+                            <div class="math-planet-title">Circles</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Overlay for Levels -->
+                <div id="level-map-overlay" class="level-map-overlay" style="display:none;">
+                    <div class="level-map-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px;">
+                        <button id="close-map-btn" class="close-map-btn">&times;</button>
+                        <h2 id="map-topic-title">Choose Your Level</h2>
+                        <div class="level-buttons-container" style="display: flex; gap: 2rem; justify-content: center; align-items: center; margin-top: 2rem; background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(25, 55, 109, 0.3); border-radius: 16px; padding: 3rem; backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+                            <div class="level-box">
+                                <a id="level-easy" class="level-btn" href="#">
+                                    <span class="level-label">Easy</span>
+                                    <span class="level-lock" id="lock-easy" style="display:none;">🔒</span>
+                                </a>
+                            </div>
+                            <div class="level-box">
+                                <a id="level-medium" class="level-btn" href="#">
+                                    <span class="level-label">Medium</span>
+                                    <span class="level-lock" id="lock-medium" style="display:none;">🔒</span>
+                                </a>
+                            </div>
+                            <div class="level-box">
+                                <a id="level-hard" class="level-btn" href="#">
+                                    <span class="level-label">Hard</span>
+                                    <span class="level-lock" id="lock-hard" style="display:none;">🔒</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Section -->
+            <section class="progress-section dashboard-container">
+                <h3 class="dashboard-title">Your Progress</h3>
+                <div class="progress-stats">
+                    <div class="stat-card space-card">
+                        <h4>Topics Completed</h4>
+                        <p class="stat-number">0/5</p>
+                    </div>
+                    <div class="stat-card space-card">
+                        <h4>Total Score</h4>
+                        <p class="stat-number">0</p>
+                    </div>
+                    <div class="stat-card space-card">
+                        <h4>Levels Unlocked</h4>
+                        <p class="stat-number">5/15</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer with copyright -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 iSpace Math. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Additional JavaScript for the home page
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('username-form');
+            const loginContainer = document.getElementById('login-form');
+            const welcomeMessage = document.getElementById('welcome-message');
+            const userDisplayName = document.getElementById('user-display-name');
+
+            // Handle logout functionality
+            const logoutLink = document.getElementById('logout-link');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Clear all localStorage data
+                    localStorage.removeItem('ispace_username');
+                    localStorage.removeItem('ispace_auth_token');
+                    localStorage.removeItem('ispace_sheet_url');
+                    // Redirect to login page with logout parameter
+                    window.location.href = '/?logout=true';
+                });
+            }
+
+            // Check if user is already logged in with valid session
+            const storedUsername = localStorage.getItem('ispace_username');
+            const authToken = localStorage.getItem('ispace_auth_token');
+            
+            if (storedUsername && authToken) {
+                // Check if token is still valid (less than 24 hours old)
+                const tokenTime = parseInt(authToken.replace('user_', ''));
+                const currentTime = Date.now();
+                const timeDiff = currentTime - tokenTime;
+                const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                
+                if (timeDiff < oneDay) {
+                    // User is logged in with valid session
+                    loginContainer.style.display = 'none';
+                    welcomeMessage.style.display = 'block';
+                    userDisplayName.textContent = storedUsername;
+                } else {
+                    // Token is expired, clear it and redirect to login
+                    localStorage.removeItem('ispace_username');
+                    localStorage.removeItem('ispace_auth_token');
+                    localStorage.removeItem('ispace_sheet_url');
+                    window.location.href = '/';
+                }
+            } else {
+                // User is not logged in, redirect to login page
+                window.location.href = '/';
+            }
+
+            // Handle login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value.trim();
+                
+                if (username) {
+                    // Store username and auth token
+                    localStorage.setItem('ispace_username', username);
+                    localStorage.setItem('ispace_auth_token', 'user_' + Date.now());
+                    
+                    // Update UI
+                    loginContainer.style.display = 'none';
+                    welcomeMessage.style.display = 'block';
+                    userDisplayName.textContent = username;
+                    
+
+                    
+                    // Show success notification
+                    if (window.iSpaceMath && window.iSpaceMath.showNotification) {
+                        window.iSpaceMath.showNotification('Welcome to iSpace Math, ' + username + '!', 'success');
+                    }
+                }
+            });
+
+
+
+            // Add click effects to planets
+            const planets = document.querySelectorAll('.math-planet');
+            planets.forEach(planet => {
+                planet.addEventListener('click', function() {
+                    // Add click animation
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // Add hover effects to level buttons
+            const levelButtons = document.querySelectorAll('.level-button-enabled');
+            levelButtons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+    <script>
+    // Overlay logic for planet click
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.planet-with-label').forEach(function(planet) {
+            planet.addEventListener('click', function() {
+                var topic = this.getAttribute('data-topic');
+                var topicTitle = this.querySelector('.math-planet-title').textContent;
+                
+                // Get current user's progress
+                const username = localStorage.getItem('ispace_username');
+                const userProgress = JSON.parse(localStorage.getItem(`ispace_progress_${username}`) || '{}');
+                const topicProgress = userProgress[topic] || { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} };
+                
+                document.getElementById('level-map-overlay').style.display = 'flex';
+                document.getElementById('map-topic-title').textContent = topicTitle + ': Choose Your Level';
+                
+                // Set up level buttons based on user's progress
+                const levelEasy = document.getElementById('level-easy');
+                const levelMedium = document.getElementById('level-medium');
+                const levelHard = document.getElementById('level-hard');
+                
+                // Easy level is always available
+                levelEasy.href = '/quiz?topic=' + topic + '&level=easy';
+                levelEasy.className = 'level-btn';
+                
+                // Medium level - check if unlocked
+                if (topicProgress.unlockedLevels.includes('medium')) {
+                    levelMedium.href = '/quiz?topic=' + topic + '&level=medium';
+                    levelMedium.className = 'level-btn';
+                    levelMedium.innerHTML = 'Medium';
+                    levelMedium.onclick = null; // Remove any click handlers
+                } else {
+                    levelMedium.href = '#';
+                    levelMedium.className = 'level-btn locked';
+                    levelMedium.innerHTML = 'Medium <span class="level-lock">🔒</span>';
+                    // Prevent clicking on locked level
+                    levelMedium.onclick = function(e) {
+                        e.preventDefault();
+                        alert('Complete the previous level with at least 50% score to unlock this level!');
+                        return false;
+                    };
+                }
+                
+                // Hard level - check if unlocked
+                if (topicProgress.unlockedLevels.includes('hard')) {
+                    levelHard.href = '/quiz?topic=' + topic + '&level=hard';
+                    levelHard.className = 'level-btn';
+                    levelHard.innerHTML = 'Hard';
+                    levelHard.onclick = null; // Remove any click handlers
+                } else {
+                    levelHard.href = '#';
+                    levelHard.className = 'level-btn locked';
+                    levelHard.innerHTML = 'Hard <span class="level-lock">🔒</span>';
+                    // Prevent clicking on locked level
+                    levelHard.onclick = function(e) {
+                        e.preventDefault();
+                        alert('Complete the previous level with at least 50% score to unlock this level!');
+                        return false;
+                    };
+                }
+                
+                // Show current level indicator
+                const currentLevel = topicProgress.currentLevel || 'easy';
+                console.log(`DEBUG: Current level for ${topic}: ${currentLevel}`);
+            });
+        });
+        document.getElementById('close-map-btn').addEventListener('click', function() {
+            document.getElementById('level-map-overlay').style.display = 'none';
+        });
+    });
+    </script>
+</body>
+</html> 

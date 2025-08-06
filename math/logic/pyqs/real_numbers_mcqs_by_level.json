@@ -1,0 +1,317 @@
+{
+  "easy": 
+    [
+  {
+    "question": "The decimal expansion of 7/8 is:",
+    "options": {
+      "A": "Terminating",
+      "B": "Non-terminating recurring",
+      "C": "Non-terminating non-recurring",
+      "D": "Irrational"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Which of the following is an irrational number?",
+    "options": {
+      "A": "√2",
+      "B": "0.333…",
+      "C": "5/7",
+      "D": "7.25"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Which of the following has a non-terminating, non-repeating decimal expansion?",
+    "options": {
+      "A": "22/7",
+      "B": "√3",
+      "C": "3.1416",
+      "D": "9/4"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The decimal expansion of 1/3 is:",
+    "options": {
+      "A": "Terminating",
+      "B": "Recurring",
+      "C": "Non-recurring",
+      "D": "Irrational"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which number is not a rational number?",
+    "options": {
+      "A": "√2",
+      "B": "4/5",
+      "C": "3.75",
+      "D": "-2"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A rational number can be expressed as:",
+    "options": {
+      "A": "p/q, q ≠ 0",
+      "B": "q/p, p ≠ 0",
+      "C": "q/p, q ≠ 0",
+      "D": "p/q, q = 0"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The number √49 is:",
+    "options": {
+      "A": "Rational",
+      "B": "Irrational",
+      "C": "Prime",
+      "D": "Imaginary"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Which of these is not a whole number?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "-1",
+      "D": "7"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "How many digits will be there in the decimal expansion of 1/2?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "Terminating",
+      "D": "Non-terminating"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which of the following is a rational number?",
+    "options": {
+      "A": "π",
+      "B": "√5",
+      "C": "1.5",
+      "D": "√2"
+    },
+    "answer": "C"
+  }
+]
+
+  ,
+  "medium": 
+    [
+  {
+    "question": "If p and q are prime numbers, then √(p × q) is:",
+    "options": {
+      "A": "Rational",
+      "B": "Irrational",
+      "C": "Prime",
+      "D": "Even"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The number 2.13113111311113… is:",
+    "options": {
+      "A": "Rational",
+      "B": "Irrational",
+      "C": "Terminating",
+      "D": "Whole"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "How many prime factors are there in 210?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the LCM of 12 and 18?",
+    "options": {
+      "A": "36",
+      "B": "12",
+      "C": "6",
+      "D": "18"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The HCF of 20 and 28 is:",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "8"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Express 0.16̅ as a rational number.",
+    "options": {
+      "A": "4/25",
+      "B": "8/45",
+      "C": "16/99",
+      "D": "16/100"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is not a prime number?",
+    "options": {
+      "A": "2",
+      "B": "11",
+      "C": "1",
+      "D": "17"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Fundamental Theorem of Arithmetic states:",
+    "options": {
+      "A": "Every integer has infinite divisors",
+      "B": "Every composite number can be expressed as product of primes uniquely",
+      "C": "Every number has only one divisor",
+      "D": "None of the above"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "HCF of two numbers is always a factor of their:",
+    "options": {
+      "A": "Difference",
+      "B": "Product",
+      "C": "Sum",
+      "D": "Quotient"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which is a correct prime factorization of 84?",
+    "options": {
+      "A": "2×2×3×7",
+      "B": "2×2×2×3",
+      "C": "3×3×4",
+      "D": "2×5×7"
+    },
+    "answer": "A"
+  }
+]
+
+  ,
+  "hard": 
+    [
+  {
+    "question": "What is the HCF of 252 and 105 using the Euclidean Algorithm?",
+    "options": {
+      "A": "21",
+      "B": "7",
+      "C": "14",
+      "D": "35"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The product of two numbers is 1305 and their HCF is 15. What is their LCM?",
+    "options": {
+      "A": "87",
+      "B": "145",
+      "C": "150",
+      "D": "1305"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The decimal expansion of 1/13 is:",
+    "options": {
+      "A": "Terminating",
+      "B": "Recurring with 6 digits",
+      "C": "Recurring with 4 digits",
+      "D": "Non-recurring"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If two numbers a and b are such that LCM(a, b) = ab, then:",
+    "options": {
+      "A": "a = b",
+      "B": "HCF(a, b) = 1",
+      "C": "LCM = HCF",
+      "D": "None of these"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "How many digits are there in the repeating block of 1/7?",
+    "options": {
+      "A": "6",
+      "B": "1",
+      "C": "7",
+      "D": "3"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "If x = 2^3 × 3^2 × 5, what is the total number of divisors of x?",
+    "options": {
+      "A": "12",
+      "B": "18",
+      "C": "24",
+      "D": "36"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is an example of an irrational number?",
+    "options": {
+      "A": "√8",
+      "B": "√16",
+      "C": "9/3",
+      "D": "0.75"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What is the LCM of 8, 9, and 25?",
+    "options": {
+      "A": "180",
+      "B": "225",
+      "C": "3600",
+      "D": "600"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "What is the smallest number that is divisible by 12, 15, and 20?",
+    "options": {
+      "A": "60",
+      "B": "120",
+      "C": "240",
+      "D": "300"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following is a non-repeating and non-terminating decimal?",
+    "options": {
+      "A": "π",
+      "B": "0.333…",
+      "C": "7.125",
+      "D": "9.5"
+    },
+    "answer": "A"
+  }
+]
+
+  
+}

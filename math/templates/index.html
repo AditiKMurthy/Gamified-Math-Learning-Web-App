@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSpace Math - Login</title>
+    
+    <!-- Google Fonts - Orbitron for futuristic vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Login page specific styles */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-page::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(25, 55, 109, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(15, 30, 60, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(10, 20, 40, 0.12) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(25, 55, 109, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1),
+                0 0 50px rgba(25, 55, 109, 0.2);
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(25, 55, 109, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(15, 30, 60, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ffffff, #a0c8f0, #4a90e2, #ffffff);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: blueGradientShift 4s ease-in-out infinite;
+            text-shadow: 0 0 15px rgba(25, 55, 109, 0.8);
+            margin-bottom: 0.5rem;
+        }
+
+        .login-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 5px rgba(25, 55, 109, 0.6);
+        }
+
+        .form-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 5px rgba(25, 55, 109, 0.6);
+            font-size: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 2px solid rgba(25, 55, 109, 0.3);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: rgba(25, 55, 109, 0.8);
+            box-shadow: 0 0 20px rgba(25, 55, 109, 0.4);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .login-button {
+            width: 100%;
+            background: linear-gradient(135deg, rgba(25, 55, 109, 0.9), rgba(15, 30, 60, 0.8));
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 0 15px rgba(25, 55, 109, 0.4),
+                inset 0 0 10px rgba(255, 255, 255, 0.1);
+            margin-bottom: 1.5rem;
+        }
+
+        .login-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .login-button:hover::before {
+            left: 100%;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 25px rgba(25, 55, 109, 0.8),
+                0 0 50px rgba(25, 55, 109, 0.4);
+            background: linear-gradient(135deg, rgba(25, 55, 109, 1), rgba(15, 30, 60, 0.9));
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+            box-shadow: 
+                0 0 15px rgba(25, 55, 109, 0.6),
+                inset 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-divider {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .form-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(25, 55, 109, 0.5), transparent);
+        }
+
+        .form-divider span {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .create-account-button {
+            width: 100%;
+            background: rgba(25, 55, 109, 0.2);
+            color: #ffffff;
+            border: 2px solid rgba(25, 55, 109, 0.5);
+            border-radius: 12px;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', monospace;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .create-account-button:hover {
+            background: rgba(25, 55, 109, 0.3);
+            border-color: rgba(25, 55, 109, 0.7);
+            box-shadow: 0 0 20px rgba(25, 55, 109, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .back-to-home {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .back-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #4a90e2;
+            text-shadow: 0 0 5px rgba(25, 55, 109, 0.6);
+        }
+
+        .error-message {
+            background: rgba(220, 53, 69, 0.2);
+            border: 1px solid rgba(220, 53, 69, 0.5);
+            color: #ff6b6b;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        .success-message {
+            background: rgba(40, 167, 69, 0.2);
+            border: 1px solid rgba(40, 167, 69, 0.5);
+            color: #6bcf7f;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+            display: none;
+        }
+
+        /* Floating stars animation */
+        .floating-stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; left: 80%; animation-delay: 0.5s; }
+        .star:nth-child(3) { top: 30%; left: 20%; animation-delay: 1s; }
+        .star:nth-child(4) { top: 40%; left: 90%; animation-delay: 1.5s; }
+        .star:nth-child(5) { top: 50%; left: 5%; animation-delay: 2s; }
+        .star:nth-child(6) { top: 60%; left: 70%; animation-delay: 2.5s; }
+        .star:nth-child(7) { top: 70%; left: 15%; animation-delay: 3s; }
+        .star:nth-child(8) { top: 80%; left: 85%; animation-delay: 3.5s; }
+        .star:nth-child(9) { top: 90%; left: 25%; animation-delay: 4s; }
+        .star:nth-child(10) { top: 15%; left: 60%; animation-delay: 4.5s; }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .login-page {
+                padding: 1rem;
+            }
+            
+            .login-container {
+                padding: 2rem;
+            }
+            
+            .login-title {
+                font-size: 2rem;
+            }
+            
+            .login-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 1.5rem;
+            }
+            
+            .login-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-input {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .login-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating stars background -->
+    <div class="floating-stars">
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+    </div>
+
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="login-title">iSpace Math</h1>
+                <p class="login-subtitle">Begin Your Cosmic Journey</p>
+            </div>
+
+            <div class="form-container">
+                <!-- Error/Success Messages -->
+                <div id="error-message" class="error-message"></div>
+                <div id="success-message" class="success-message"></div>
+
+                <!-- Login Form -->
+                <form id="login-form" class="login-form">
+                    <div class="form-group">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" id="username" name="username" class="form-input" 
+                               placeholder="Enter your username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" id="password" name="password" class="form-input" 
+                               placeholder="Enter your password" required>
+                    </div>
+                    
+                    <button type="submit" class="login-button">Launch into Space</button>
+                </form>
+
+                <div class="form-divider">
+                    <span>or</span>
+                </div>
+
+                <!-- Create Account Form -->
+                <form id="create-account-form" class="create-account-form" style="display: none;">
+                    <div class="form-group">
+                        <label for="new-username" class="form-label">Create Username</label>
+                        <input type="text" id="new-username" name="new-username" class="form-input" 
+                               placeholder="Choose a username" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-password" class="form-label">Create Password</label>
+                        <input type="password" id="new-password" name="new-password" class="form-input" 
+                               placeholder="Choose a password" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password" class="form-label">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" class="form-input" 
+                               placeholder="Confirm your password" required>
+                    </div>
+                    
+                    <button type="submit" class="login-button">Create Account</button>
+                </form>
+
+                <button id="toggle-form" class="create-account-button">Create New Account</button>
+            </div>
+
+                         <div class="back-to-home">
+                 <a href="/home" class="back-link">← Back to Home</a>
+             </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('login-form');
+            const createAccountForm = document.getElementById('create-account-form');
+            const toggleButton = document.getElementById('toggle-form');
+            const errorMessage = document.getElementById('error-message');
+            const successMessage = document.getElementById('success-message');
+
+            let isLoginMode = true;
+
+            // Toggle between login and create account forms
+            toggleButton.addEventListener('click', function() {
+                if (isLoginMode) {
+                    // Switch to create account mode
+                    loginForm.style.display = 'none';
+                    createAccountForm.style.display = 'block';
+                    toggleButton.textContent = 'Back to Login';
+                    isLoginMode = false;
+                } else {
+                    // Switch to login mode
+                    loginForm.style.display = 'block';
+                    createAccountForm.style.display = 'none';
+                    toggleButton.textContent = 'Create New Account';
+                    isLoginMode = true;
+                }
+                
+                // Clear messages
+                hideMessages();
+            });
+
+            // Handle login form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value;
+
+                if (!username || !password) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+
+                // Use Google Sheets exclusively for authentication
+                fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Google Sheets login successful
+                        localStorage.setItem('ispace_username', username);
+                        localStorage.setItem('ispace_auth_token', 'user_' + Date.now());
+                        localStorage.setItem('ispace_sheet_url', data.sheet_url || '');
+                        
+                        // Check if user has progress data, if not initialize it
+                        if (!localStorage.getItem(`ispace_progress_${username}`)) {
+                            const initialProgress = {
+                                algebra: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                                real_numbers: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                                triangles: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                                'surface-area-and-volumes': { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                                statistics: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} }
+                            };
+                            localStorage.setItem(`ispace_progress_${username}`, JSON.stringify(initialProgress));
+                            console.log(`DEBUG: Initialized progress for existing user: ${username}`);
+                        }
+                        
+                        showSuccess('Welcome back, ' + username + '!');
+                        
+                        setTimeout(() => {
+                            window.location.href = '/home';
+                        }, 1500);
+                    } else {
+                        showError(data.message || 'Invalid username or password');
+                    }
+                })
+                .catch(error => {
+                    console.error('Login error:', error);
+                    showError('Login failed. Please try again.');
+                });
+            });
+
+            // Handle create account form submission
+            createAccountForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const username = document.getElementById('new-username').value.trim();
+                const password = document.getElementById('new-password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+
+                if (!username || !password || !confirmPassword) {
+                    showError('Please fill in all fields');
+                    return;
+                }
+
+                if (password !== confirmPassword) {
+                    showError('Passwords do not match');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    showError('Password must be at least 6 characters long');
+                    return;
+                }
+
+                // Use Google Sheets exclusively for registration
+                fetch('/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                        name: username
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Google Sheets registration successful
+                        localStorage.setItem('ispace_username', username);
+                        localStorage.setItem('ispace_auth_token', 'user_' + Date.now());
+                        localStorage.setItem('ispace_sheet_url', data.sheet_url || '');
+                        
+                        // Initialize user progress for new user
+                        const initialProgress = {
+                            algebra: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                            real_numbers: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                            triangles: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                            'surface-area-and-volumes': { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} },
+                            statistics: { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} }
+                        };
+                        localStorage.setItem(`ispace_progress_${username}`, JSON.stringify(initialProgress));
+                        
+                        showSuccess('Account created successfully! Welcome to iSpace Math, ' + username + '!');
+                        
+                        setTimeout(() => {
+                            window.location.href = '/home';
+                        }, 2000);
+                    } else {
+                        showError(data.message || 'Registration failed');
+                    }
+                })
+                .catch(error => {
+                    console.error('Registration error:', error);
+                    showError('Registration failed. Please try again.');
+                });
+            });
+
+            // Helper functions for messages
+            function showError(message) {
+                errorMessage.textContent = message;
+                errorMessage.style.display = 'block';
+                successMessage.style.display = 'none';
+            }
+
+            function showSuccess(message) {
+                successMessage.textContent = message;
+                successMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+            }
+
+            function hideMessages() {
+                errorMessage.style.display = 'none';
+                successMessage.style.display = 'none';
+            }
+
+                         // Check if user is already logged in
+             const storedUsername = localStorage.getItem('ispace_username');
+             const authToken = localStorage.getItem('ispace_auth_token');
+             
+             // Check if this is a logout action (URL parameter)
+             const urlParams = new URLSearchParams(window.location.search);
+             const isLogout = urlParams.get('logout');
+             
+             // Only redirect if user has a valid authenticated session (not just stored data)
+             // Check if auth token is recent (within last 24 hours) and not a logout action
+             if (storedUsername && authToken && !isLogout) {
+                 const tokenTime = parseInt(authToken.replace('user_', ''));
+                 const currentTime = Date.now();
+                 const timeDiff = currentTime - tokenTime;
+                 const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                 
+                 // Only redirect if token is less than 24 hours old
+                 if (timeDiff < oneDay) {
+                     // User is already logged in, redirect to home
+                     window.location.href = '/home';
+                 } else {
+                     // Token is expired, clear it
+                     localStorage.removeItem('ispace_username');
+                     localStorage.removeItem('ispace_auth_token');
+                     localStorage.removeItem('ispace_sheet_url');
+                 }
+             }
+
+            // Add input focus effects
+            const inputs = document.querySelectorAll('.form-input');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    this.parentElement.style.transform = 'scale(1.02)';
+                });
+                
+                input.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

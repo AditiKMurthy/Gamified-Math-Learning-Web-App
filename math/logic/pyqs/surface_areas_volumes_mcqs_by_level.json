@@ -1,0 +1,315 @@
+{
+  "easy": 
+   [
+  {
+    "question": "What is the volume of a cube whose side is 4 cm?",
+    "options": {
+      "A": "64 cm³",
+      "B": "16 cm³",
+      "C": "32 cm³",
+      "D": "48 cm³"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What is the surface area of a cube with side 5 cm?",
+    "options": {
+      "A": "100 cm²",
+      "B": "125 cm²",
+      "C": "150 cm²",
+      "D": "200 cm²"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which solid has one circular face and one curved surface?",
+    "options": {
+      "A": "Cone",
+      "B": "Sphere",
+      "C": "Cylinder",
+      "D": "Cuboid"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What is the formula for volume of a cylinder?",
+    "options": {
+      "A": "πr²h",
+      "B": "2πrh",
+      "C": "πrl",
+      "D": "2πr² + 2πrh"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Find the volume of a cube with edge 10 cm.",
+    "options": {
+      "A": "100 cm³",
+      "B": "1000 cm³",
+      "C": "10 cm³",
+      "D": "500 cm³"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The curved surface area of a cone is given by:",
+    "options": {
+      "A": "πr²",
+      "B": "πrl",
+      "C": "2πrh",
+      "D": "2πr²"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the total surface area of a sphere with radius r?",
+    "options": {
+      "A": "2πr²",
+      "B": "3πr²",
+      "C": "4πr²",
+      "D": "πr²"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What is the shape of the base of a cone?",
+    "options": {
+      "A": "Circle",
+      "B": "Square",
+      "C": "Triangle",
+      "D": "Rectangle"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "If the height and radius of a cylinder are doubled, its volume becomes:",
+    "options": {
+      "A": "4 times",
+      "B": "2 times",
+      "C": "8 times",
+      "D": "6 times"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "The surface area of a cuboid is calculated using:",
+    "options": {
+      "A": "2(lb + bh + hl)",
+      "B": "l × b × h",
+      "C": "4πr²",
+      "D": "2πr² + 2πrh"
+    },
+    "answer": "A"
+  }
+]
+
+  ,
+  "medium": 
+    [
+  {
+    "question": "A metal sphere of radius 3.5 cm is melted and recast into small spherical balls of radius 0.7 cm. How many such small balls can be made?",
+    "options": {
+      "A": "125",
+      "B": "343",
+      "C": "512",
+      "D": "729"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The height and radius of a cone are both doubled. The volume becomes:",
+    "options": {
+      "A": "2 times",
+      "B": "4 times",
+      "C": "6 times",
+      "D": "8 times"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "A solid cone is melted and recast into a solid hemisphere of the same radius. What is the ratio of the heights of the cone and hemisphere?",
+    "options": {
+      "A": "1:2",
+      "B": "3:2",
+      "C": "2:3",
+      "D": "3:1"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "The total surface area of a cylinder of radius 7 cm and height 10 cm is:",
+    "options": {
+      "A": "748 cm²",
+      "B": "902 cm²",
+      "C": "814 cm²",
+      "D": "858 cm²"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "A cylindrical pipe has an inner radius 3.5 cm and length 20 m. The thickness of the pipe is 0.5 cm. What is the volume of metal used?",
+    "options": {
+      "A": "1100 cm³",
+      "B": "1250 cm³",
+      "C": "1225 cm³",
+      "D": "1000 cm³"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "A cone is melted to form a cylinder of the same base radius. If the cone’s height is 12 cm, the height of the cylinder is:",
+    "options": {
+      "A": "4 cm",
+      "B": "6 cm",
+      "C": "8 cm",
+      "D": "12 cm"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A cylindrical tank has a radius of 14 m and height of 10 m. Find its volume.",
+    "options": {
+      "A": "6160 m³",
+      "B": "5000 m³",
+      "C": "7000 m³",
+      "D": "6150 m³"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "If the surface area of a sphere is 616 cm², find its radius.",
+    "options": {
+      "A": "6 cm",
+      "B": "7 cm",
+      "C": "8 cm",
+      "D": "5.5 cm"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The volume of a hemisphere is 288π cm³. Find its radius.",
+    "options": {
+      "A": "6 cm",
+      "B": "8 cm",
+      "C": "9 cm",
+      "D": "12 cm"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A cuboid has dimensions 8 cm × 6 cm × 5 cm. Find its surface area.",
+    "options": {
+      "A": "232 cm²",
+      "B": "236 cm²",
+      "C": "248 cm²",
+      "D": "254 cm²"
+    },
+    "answer": "A"
+  }
+]
+
+  ,
+  "hard": [
+  {
+    "question": "A toy is made by mounting a cone on a hemisphere. If the radius is 3.5 cm and height of cone is 4 cm, find the total surface area.",
+    "options": {
+      "A": "103.67 cm²",
+      "B": "110.85 cm²",
+      "C": "120.33 cm²",
+      "D": "94.2 cm²"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A well of diameter 14 m is dug 10 m deep. The earth is used to form a platform 5 m wide around it. What is the height of the platform?",
+    "options": {
+      "A": "4 m",
+      "B": "2.5 m",
+      "C": "3 m",
+      "D": "5 m"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "A metallic spherical ball of radius 4.2 cm is melted and recast into smaller spherical balls each of radius 0.7 cm. How many small balls are formed?",
+    "options": {
+      "A": "512",
+      "B": "729",
+      "C": "1000",
+      "D": "343"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "A solid iron pole consists of a cylinder of height 220 cm and base diameter 24 cm. It is surmounted by a hemisphere. Find the total surface area of the pole.",
+    "options": {
+      "A": "16632 cm²",
+      "B": "15832 cm²",
+      "C": "15523 cm²",
+      "D": "16750 cm²"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The surface area of a sphere is increased by 44% when its radius is increased by:",
+    "options": {
+      "A": "10%",
+      "B": "20%",
+      "C": "25%",
+      "D": "30%"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "A cone is cut in a plane parallel to its base and the upper part is removed. What remains is called a:",
+    "options": {
+      "A": "Hemisphere",
+      "B": "Frustum",
+      "C": "Cylinder",
+      "D": "Truncated cone"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "A hemisphere of radius 10 cm is removed from the top of a cylinder of the same radius and height 20 cm. Find the total surface area of the remaining solid.",
+    "options": {
+      "A": "1884.8 cm²",
+      "B": "2200 cm²",
+      "C": "1700 cm²",
+      "D": "2100 cm²"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A bucket is in the form of a frustum of a cone. Its height is 24 cm and the radii of the top and bottom are 15 cm and 5 cm respectively. Find its capacity.",
+    "options": {
+      "A": "8800 cm³",
+      "B": "8700 cm³",
+      "C": "8800π cm³",
+      "D": "880π cm³"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Find the volume of a solid cone with height 24 cm and radius 7 cm.",
+    "options": {
+      "A": "1232 cm³",
+      "B": "1232π cm³",
+      "C": "1233.3 cm³",
+      "D": "1233 cm³"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A conical vessel is full of water. How many spherical balls of radius 0.5 cm can be filled with the water from the vessel of radius 3 cm and height 9 cm?",
+    "options": {
+      "A": "81",
+      "B": "108",
+      "C": "96",
+      "D": "72"
+    },
+    "answer": "B"
+  }
+]
+
+}

@@ -1,0 +1,311 @@
+{
+  "easy": [
+  {
+    "question": "The mode of the data: 4, 5, 6, 5, 7, 5, 8 is:",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "7"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The mean of the first five natural numbers is:",
+    "options": {
+      "A": "3",
+      "B": "2",
+      "C": "5",
+      "D": "4"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The median of the data 3, 5, 7 is:",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "6"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which of these is not a measure of central tendency?",
+    "options": {
+      "A": "Mean",
+      "B": "Median",
+      "C": "Mode",
+      "D": "Range"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "If the marks of 5 students are: 10, 20, 30, 40, 50, the mean is:",
+    "options": {
+      "A": "20",
+      "B": "30",
+      "C": "25",
+      "D": "40"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The median of an odd number of observations is:",
+    "options": {
+      "A": "Any value",
+      "B": "Middle value",
+      "C": "Highest value",
+      "D": "Lowest value"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What is the mode of 9, 8, 6, 9, 5, 6, 9?",
+    "options": {
+      "A": "6",
+      "B": "8",
+      "C": "9",
+      "D": "5"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which of the following is most affected by extreme values?",
+    "options": {
+      "A": "Mean",
+      "B": "Median",
+      "C": "Mode",
+      "D": "None"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "In a frequency distribution, the number of times a value occurs is called:",
+    "options": {
+      "A": "Tally",
+      "B": "Frequency",
+      "C": "Mark",
+      "D": "Total"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If all values in a dataset are the same, then mean, median and mode are:",
+    "options": {
+      "A": "All different",
+      "B": "None exist",
+      "C": "All equal",
+      "D": "Only mode exists"
+    },
+    "answer": "C"
+  }
+]
+,
+  "medium": [
+  {
+    "question": "The mean of 6, 7, 8, x, 10 is 8. What is the value of x?",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "9.5",
+      "D": "10"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The median of the data: 9, 5, 7, 1, 3 is:",
+    "options": {
+      "A": "5",
+      "B": "7",
+      "C": "6",
+      "D": "4"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The mode of the data: 1, 2, 3, 3, 4, 4, 4, 5, 5 is:",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "2"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The average of first 10 even natural numbers is:",
+    "options": {
+      "A": "10",
+      "B": "11",
+      "C": "12",
+      "D": "15"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If the mean of 5 observations is 20, then the sum of observations is:",
+    "options": {
+      "A": "100",
+      "B": "25",
+      "C": "5",
+      "D": "120"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The modal class in grouped data is the class:",
+    "options": {
+      "A": "With highest frequency",
+      "B": "With lowest frequency",
+      "C": "In the middle",
+      "D": "That contains mean"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The median of grouped data is located using:",
+    "options": {
+      "A": "Histogram",
+      "B": "Cumulative frequency curve",
+      "C": "Ogive",
+      "D": "Both B and C"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "The mode formula in grouped data is:",
+    "options": {
+      "A": "l + [(f₁–f₀)/(2f₁–f₀–f₂)] × h",
+      "B": "l + h/2",
+      "C": "f₁/f₂ × h",
+      "D": "l + (f₂–f₀) × h"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "What is the class mark of the class 10–20?",
+    "options": {
+      "A": "10",
+      "B": "15",
+      "C": "20",
+      "D": "30"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The difference between the highest and lowest values in data is called:",
+    "options": {
+      "A": "Mean",
+      "B": "Spread",
+      "C": "Range",
+      "D": "Mode"
+    },
+    "answer": "C"
+  }
+]
+,
+  "hard": [
+  {
+    "question": "If the median class is 30–40, l = 30, h = 10, cf = 24, f = 18, and n = 60, what is the median?",
+    "options": {
+      "A": "35",
+      "B": "36.67",
+      "C": "34",
+      "D": "38"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If a class interval has frequency 20, lower boundary 40, upper boundary 50, then class width is:",
+    "options": {
+      "A": "10",
+      "B": "9",
+      "C": "11",
+      "D": "20"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "The modal class has frequency 25. The class before has frequency 20 and after has 15. What is mode?",
+    "options": {
+      "A": "50.83",
+      "B": "52.5",
+      "C": "51.25",
+      "D": "49.5"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "The median divides the data into:",
+    "options": {
+      "A": "Two equal parts",
+      "B": "Three equal parts",
+      "C": "Four equal parts",
+      "D": "Unequal parts"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "If the mean of 6 observations is 10, and five of them are 8, 9, 10, 12, 11, find the 6th observation.",
+    "options": {
+      "A": "8",
+      "B": "10",
+      "C": "10.5",
+      "D": "10.2"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "In a frequency table, the sum of all frequencies gives:",
+    "options": {
+      "A": "Mean",
+      "B": "Number of observations",
+      "C": "Mode",
+      "D": "Median"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "The class boundaries of class 20–30 are:",
+    "options": {
+      "A": "19.5 and 30.5",
+      "B": "19.5 and 29.5",
+      "C": "20 and 30",
+      "D": "None"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If the frequencies are 10, 20, 30, 40, 50 for classes 0–10, 10–20… then what is the cumulative frequency of 20–30?",
+    "options": {
+      "A": "30",
+      "B": "60",
+      "C": "100",
+      "D": "10"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "For class interval 40–50 with frequency 15, the class mark is:",
+    "options": {
+      "A": "40",
+      "B": "45",
+      "C": "50",
+      "D": "55"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "If a data set has all values equal, then variance is:",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "Undefined",
+      "D": "100"
+    },
+    "answer": "B"
+  }
+]
+
+}

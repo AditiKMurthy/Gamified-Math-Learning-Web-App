@@ -1,0 +1,608 @@
+{
+    "easy": [
+        {
+            "question": "The graph of a polynomial cuts the x-axis at 3 points. How many zeroes does it have?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The maximum number of zeroes a cubic polynomial can have is:",
+            "options": {
+                "A": "1",
+                "B": "4",
+                "C": "2",
+                "D": "3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If one zero of the polynomial (x\u00b2 + 3x + k) is 2, then the value of k is:",
+            "options": {
+                "A": "6",
+                "B": "-6",
+                "C": "4",
+                "D": "-10"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is 2 and the other is 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 \u2212 5x \u2212 6",
+                "D": "x\u00b2 + 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of the polynomial f(x) = x\u2074 \u2212 x\u00b3 + 2x\u00b2 \u2212 x + 1 at x = 1 is:",
+            "options": {
+                "A": "2",
+                "B": "1",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The graph of a polynomial cuts the x-axis at 3 points. How many zeroes does it have?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The maximum number of zeroes a cubic polynomial can have is:",
+            "options": {
+                "A": "1",
+                "B": "4",
+                "C": "2",
+                "D": "3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If one zero of the polynomial (x\u00b2 + 3x + k) is 2, then the value of k is:",
+            "options": {
+                "A": "6",
+                "B": "-6",
+                "C": "4",
+                "D": "-10"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is 2 and the other is 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 \u2212 5x \u2212 6",
+                "D": "x\u00b2 + 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of the polynomial f(x) = x\u2074 \u2212 x\u00b3 + 2x\u00b2 \u2212 x + 1 at x = 1 is:",
+            "options": {
+                "A": "2",
+                "B": "1",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The graph of a polynomial cuts the x-axis at 3 points. How many zeroes does it have?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The maximum number of zeroes a cubic polynomial can have is:",
+            "options": {
+                "A": "1",
+                "B": "4",
+                "C": "2",
+                "D": "3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If one zero of the polynomial (x\u00b2 + 3x + k) is 2, then the value of k is:",
+            "options": {
+                "A": "6",
+                "B": "-6",
+                "C": "4",
+                "D": "-10"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is 2 and the other is 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 \u2212 5x \u2212 6",
+                "D": "x\u00b2 + 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of the polynomial f(x) = x\u2074 \u2212 x\u00b3 + 2x\u00b2 \u2212 x + 1 at x = 1 is:",
+            "options": {
+                "A": "2",
+                "B": "1",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The graph of a polynomial cuts the x-axis at 3 points. How many zeroes does it have?",
+            "options": {
+                "A": "1",
+                "B": "2",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "The maximum number of zeroes a cubic polynomial can have is:",
+            "options": {
+                "A": "1",
+                "B": "4",
+                "C": "2",
+                "D": "3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If one zero of the polynomial (x\u00b2 + 3x + k) is 2, then the value of k is:",
+            "options": {
+                "A": "6",
+                "B": "-6",
+                "C": "4",
+                "D": "-10"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is 2 and the other is 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 \u2212 5x \u2212 6",
+                "D": "x\u00b2 + 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of the polynomial f(x) = x\u2074 \u2212 x\u00b3 + 2x\u00b2 \u2212 x + 1 at x = 1 is:",
+            "options": {
+                "A": "2",
+                "B": "1",
+                "C": "3",
+                "D": "4"
+            },
+            "answer": "C"
+        }
+    ],
+    "medium": [
+        {
+            "question": "If the sum and product of zeroes of a quadratic polynomial are \u22125 and 6 respectively, the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 + 5x \u2212 6",
+                "D": "x\u00b2 \u2212 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of k for which the equations 5x + 2y \u2212 7 = 0 and 2x + ky + 1 = 0 have no solution is:",
+            "options": {
+                "A": "4",
+                "B": "5",
+                "C": "2",
+                "D": "5/4"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If (x \u2212 1) is a factor of the polynomial x\u00b3 \u2212 2x\u00b2 \u2212 ax + 2, then a = ?",
+            "options": {
+                "A": "\u22121",
+                "B": "\u22122",
+                "C": "0",
+                "D": "1"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the zeroes of a polynomial are m \u2212 3 and m + 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 \u2212 m\u00b2 + 9",
+                "B": "x\u00b2 \u2212 (m\u00b2 \u2212 9)",
+                "C": "x\u00b2 \u2212 (m + 3)(m \u2212 3)",
+                "D": "x\u00b2 \u2212 9"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is the negative of the other, the linear term is:",
+            "options": {
+                "A": "Present and positive",
+                "B": "Zero",
+                "C": "Negative",
+                "D": "Can't be determined"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the sum and product of zeroes of a quadratic polynomial are \u22125 and 6 respectively, the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 + 5x \u2212 6",
+                "D": "x\u00b2 \u2212 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of k for which the equations 5x + 2y \u2212 7 = 0 and 2x + ky + 1 = 0 have no solution is:",
+            "options": {
+                "A": "4",
+                "B": "5",
+                "C": "2",
+                "D": "5/4"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If (x \u2212 1) is a factor of the polynomial x\u00b3 \u2212 2x\u00b2 \u2212 ax + 2, then a = ?",
+            "options": {
+                "A": "\u22121",
+                "B": "\u22122",
+                "C": "0",
+                "D": "1"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the zeroes of a polynomial are m \u2212 3 and m + 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 \u2212 m\u00b2 + 9",
+                "B": "x\u00b2 \u2212 (m\u00b2 \u2212 9)",
+                "C": "x\u00b2 \u2212 (m + 3)(m \u2212 3)",
+                "D": "x\u00b2 \u2212 9"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is the negative of the other, the linear term is:",
+            "options": {
+                "A": "Present and positive",
+                "B": "Zero",
+                "C": "Negative",
+                "D": "Can't be determined"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the sum and product of zeroes of a quadratic polynomial are \u22125 and 6 respectively, the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 + 5x \u2212 6",
+                "D": "x\u00b2 \u2212 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of k for which the equations 5x + 2y \u2212 7 = 0 and 2x + ky + 1 = 0 have no solution is:",
+            "options": {
+                "A": "4",
+                "B": "5",
+                "C": "2",
+                "D": "5/4"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If (x \u2212 1) is a factor of the polynomial x\u00b3 \u2212 2x\u00b2 \u2212 ax + 2, then a = ?",
+            "options": {
+                "A": "\u22121",
+                "B": "\u22122",
+                "C": "0",
+                "D": "1"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the zeroes of a polynomial are m \u2212 3 and m + 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 \u2212 m\u00b2 + 9",
+                "B": "x\u00b2 \u2212 (m\u00b2 \u2212 9)",
+                "C": "x\u00b2 \u2212 (m + 3)(m \u2212 3)",
+                "D": "x\u00b2 \u2212 9"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is the negative of the other, the linear term is:",
+            "options": {
+                "A": "Present and positive",
+                "B": "Zero",
+                "C": "Negative",
+                "D": "Can't be determined"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the sum and product of zeroes of a quadratic polynomial are \u22125 and 6 respectively, the polynomial is:",
+            "options": {
+                "A": "x\u00b2 + 5x + 6",
+                "B": "x\u00b2 \u2212 5x + 6",
+                "C": "x\u00b2 + 5x \u2212 6",
+                "D": "x\u00b2 \u2212 5x \u2212 6"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "The value of k for which the equations 5x + 2y \u2212 7 = 0 and 2x + ky + 1 = 0 have no solution is:",
+            "options": {
+                "A": "4",
+                "B": "5",
+                "C": "2",
+                "D": "5/4"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "If (x \u2212 1) is a factor of the polynomial x\u00b3 \u2212 2x\u00b2 \u2212 ax + 2, then a = ?",
+            "options": {
+                "A": "\u22121",
+                "B": "\u22122",
+                "C": "0",
+                "D": "1"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If the zeroes of a polynomial are m \u2212 3 and m + 3, then the polynomial is:",
+            "options": {
+                "A": "x\u00b2 \u2212 m\u00b2 + 9",
+                "B": "x\u00b2 \u2212 (m\u00b2 \u2212 9)",
+                "C": "x\u00b2 \u2212 (m + 3)(m \u2212 3)",
+                "D": "x\u00b2 \u2212 9"
+            },
+            "answer": "B"
+        },
+        {
+            "question": "If one zero of a quadratic polynomial is the negative of the other, the linear term is:",
+            "options": {
+                "A": "Present and positive",
+                "B": "Zero",
+                "C": "Negative",
+                "D": "Can't be determined"
+            },
+            "answer": "B"
+        }
+    ],
+    "hard": [
+        {
+            "question": "A 19 m pole casts a 57 m shadow. At the same time, a tower casts a 51 m shadow. Find the height of the tower.",
+            "options": {
+                "A": "17 m",
+                "B": "15 m",
+                "C": "19 m",
+                "D": "17.5 m"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "Two cars start from two points 100 km apart and move towards each other. They meet in 1 hour. If they travel in the same direction, they meet in 5 hours. Find the speed of the faster car.",
+            "options": {
+                "A": "60 km/h",
+                "B": "70 km/h",
+                "C": "80 km/h",
+                "D": "90 km/h"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "A part of monthly hostel charges is fixed, and the rest depends on the number of days a student takes food. If a student pays \u20b94500 for 25 days and \u20b95200 for 30 days, find the fixed charges.",
+            "options": {
+                "A": "\u20b91000",
+                "B": "\u20b91200",
+                "C": "\u20b91500",
+                "D": "\u20b91700"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "Find the value of k such that the system of equations 2x + 3y = 7 and (k \u2212 1)x + (k + 2)y = 3k has infinitely many solutions.",
+            "options": {
+                "A": "k = 1",
+                "B": "k = 2",
+                "C": "k = \u22121",
+                "D": "k = 3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "A polynomial p(x) is such that p(x) = x\u00b3 \u2212 2x\u00b2 + x \u2212 2. If \u03b1 is a zero of the polynomial, what is the value of \u03b1\u00b3 \u2212 2\u03b1\u00b2 + \u03b1 \u2212 2?",
+            "options": {
+                "A": "0",
+                "B": "1",
+                "C": "\u22121",
+                "D": "2"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "A 19 m pole casts a 57 m shadow. At the same time, a tower casts a 51 m shadow. Find the height of the tower.",
+            "options": {
+                "A": "17 m",
+                "B": "15 m",
+                "C": "19 m",
+                "D": "17.5 m"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "Two cars start from two points 100 km apart and move towards each other. They meet in 1 hour. If they travel in the same direction, they meet in 5 hours. Find the speed of the faster car.",
+            "options": {
+                "A": "60 km/h",
+                "B": "70 km/h",
+                "C": "80 km/h",
+                "D": "90 km/h"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "A part of monthly hostel charges is fixed, and the rest depends on the number of days a student takes food. If a student pays \u20b94500 for 25 days and \u20b95200 for 30 days, find the fixed charges.",
+            "options": {
+                "A": "\u20b91000",
+                "B": "\u20b91200",
+                "C": "\u20b91500",
+                "D": "\u20b91700"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "Find the value of k such that the system of equations 2x + 3y = 7 and (k \u2212 1)x + (k + 2)y = 3k has infinitely many solutions.",
+            "options": {
+                "A": "k = 1",
+                "B": "k = 2",
+                "C": "k = \u22121",
+                "D": "k = 3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "A polynomial p(x) is such that p(x) = x\u00b3 \u2212 2x\u00b2 + x \u2212 2. If \u03b1 is a zero of the polynomial, what is the value of \u03b1\u00b3 \u2212 2\u03b1\u00b2 + \u03b1 \u2212 2?",
+            "options": {
+                "A": "0",
+                "B": "1",
+                "C": "\u22121",
+                "D": "2"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "A 19 m pole casts a 57 m shadow. At the same time, a tower casts a 51 m shadow. Find the height of the tower.",
+            "options": {
+                "A": "17 m",
+                "B": "15 m",
+                "C": "19 m",
+                "D": "17.5 m"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "Two cars start from two points 100 km apart and move towards each other. They meet in 1 hour. If they travel in the same direction, they meet in 5 hours. Find the speed of the faster car.",
+            "options": {
+                "A": "60 km/h",
+                "B": "70 km/h",
+                "C": "80 km/h",
+                "D": "90 km/h"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "A part of monthly hostel charges is fixed, and the rest depends on the number of days a student takes food. If a student pays \u20b94500 for 25 days and \u20b95200 for 30 days, find the fixed charges.",
+            "options": {
+                "A": "\u20b91000",
+                "B": "\u20b91200",
+                "C": "\u20b91500",
+                "D": "\u20b91700"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "Find the value of k such that the system of equations 2x + 3y = 7 and (k \u2212 1)x + (k + 2)y = 3k has infinitely many solutions.",
+            "options": {
+                "A": "k = 1",
+                "B": "k = 2",
+                "C": "k = \u22121",
+                "D": "k = 3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "A polynomial p(x) is such that p(x) = x\u00b3 \u2212 2x\u00b2 + x \u2212 2. If \u03b1 is a zero of the polynomial, what is the value of \u03b1\u00b3 \u2212 2\u03b1\u00b2 + \u03b1 \u2212 2?",
+            "options": {
+                "A": "0",
+                "B": "1",
+                "C": "\u22121",
+                "D": "2"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "A 19 m pole casts a 57 m shadow. At the same time, a tower casts a 51 m shadow. Find the height of the tower.",
+            "options": {
+                "A": "17 m",
+                "B": "15 m",
+                "C": "19 m",
+                "D": "17.5 m"
+            },
+            "answer": "A"
+        },
+        {
+            "question": "Two cars start from two points 100 km apart and move towards each other. They meet in 1 hour. If they travel in the same direction, they meet in 5 hours. Find the speed of the faster car.",
+            "options": {
+                "A": "60 km/h",
+                "B": "70 km/h",
+                "C": "80 km/h",
+                "D": "90 km/h"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "A part of monthly hostel charges is fixed, and the rest depends on the number of days a student takes food. If a student pays \u20b94500 for 25 days and \u20b95200 for 30 days, find the fixed charges.",
+            "options": {
+                "A": "\u20b91000",
+                "B": "\u20b91200",
+                "C": "\u20b91500",
+                "D": "\u20b91700"
+            },
+            "answer": "C"
+        },
+        {
+            "question": "Find the value of k such that the system of equations 2x + 3y = 7 and (k \u2212 1)x + (k + 2)y = 3k has infinitely many solutions.",
+            "options": {
+                "A": "k = 1",
+                "B": "k = 2",
+                "C": "k = \u22121",
+                "D": "k = 3"
+            },
+            "answer": "D"
+        },
+        {
+            "question": "A polynomial p(x) is such that p(x) = x\u00b3 \u2212 2x\u00b2 + x \u2212 2. If \u03b1 is a zero of the polynomial, what is the value of \u03b1\u00b3 \u2212 2\u03b1\u00b2 + \u03b1 \u2212 2?",
+            "options": {
+                "A": "0",
+                "B": "1",
+                "C": "\u22121",
+                "D": "2"
+            },
+            "answer": "A"
+        }
+    ]
+}

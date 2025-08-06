@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSpace Math - Quiz</title>
+    
+    <!-- Google Fonts - Orbitron for futuristic vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+            <!-- Custom CSS and JS -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header with glowing space-themed gradient background -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">iSpace Math</h1>
+            <nav class="navigation">
+                <ul class="nav-links">
+                    <li><a href="/home" class="nav-link">Home</a></li>
+                    <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                    <li><a href="/" class="nav-link" id="logout-link">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div id="content">
+            <!-- Quiz Section -->
+            <section class="quiz-section space-card">
+                <div class="quiz-header">
+                    <h2 class="quiz-title cosmic-text" id="quiz-title">Algebra - Easy</h2>
+                    <div class="quiz-progress">
+                        <span class="progress-text">Question <span id="current-question">1</span> of <span id="total-questions">5</span></span>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="progress-fill" style="width: 10%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question Display -->
+                <div class="question-container">
+                    <div class="question-text" id="question-text">
+                        Loading question...
+                    </div>
+                    
+                    <!-- MCQ Options Container -->
+                    <div class="options-container" id="options-container" style="display: none;">
+                        <!-- Options will be dynamically generated here -->
+                    </div>
+
+                    <!-- Answer Input (for numerical questions) -->
+                    <div class="answer-section" id="answer-section" style="display: none;">
+                        <label for="answer-input" class="answer-label">Your Answer:</label>
+                        <input type="number" id="answer-input" class="answer-input" 
+                               placeholder="Enter your answer" step="any">
+                        <div class="input-hint">Enter a number (decimals allowed)</div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="submit-section" style="display: flex; justify-content: center; align-items: center; margin-top: 2rem;">
+                        <button type="button" id="submit-btn" class="action-button submit-button">
+                            Submit Answer
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Feedback Section (hidden initially) -->
+                <div id="feedback-section" class="feedback-section" style="display: none;">
+                    <div class="feedback-content">
+                        <div class="feedback-icon" id="feedback-icon">✅</div>
+                        <div class="feedback-text" id="feedback-text">Correct!</div>
+                        <div class="feedback-explanation" id="feedback-explanation">
+                            Great job! You solved the equation correctly.
+                        </div>
+                    </div>
+                    <button type="button" id="next-btn" class="action-button next-button">
+                        Next Question
+                    </button>
+                </div>
+            </section>
+
+            <!-- Timer Section -->
+            <section class="timer-section space-card">
+                <div class="timer-display">
+                    <span class="timer-label">Time Remaining:</span>
+                    <span class="timer-value" id="timer-value">02:00</span>
+                </div>
+            </section>
+
+            <!-- Debug Section (for testing) -->
+            <section class="debug-section space-card" style="margin-top: 1rem;">
+                <h3>Debug Tools</h3>
+                <button id="test-log-btn" class="action-button" style="margin: 0.5rem;">Test Quiz Log</button>
+                <button id="test-sheets-btn" class="action-button" style="margin: 0.5rem;">Test Sheets Connection</button>
+                <button id="test-worksheet-btn" class="action-button" style="margin: 0.5rem;">Test My Worksheet</button>
+                <button id="find-worksheet-btn" class="action-button" style="margin: 0.5rem;">Find My Worksheet</button>
+                <button id="test-progress-btn" class="action-button" style="margin: 0.5rem;">Test Progress</button>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer with copyright -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 iSpace Math. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle logout functionality
+            const logoutLink = document.getElementById('logout-link');
+            if (logoutLink) {
+                logoutLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Clear all localStorage data
+                    localStorage.removeItem('ispace_username');
+                    localStorage.removeItem('ispace_auth_token');
+                    localStorage.removeItem('ispace_sheet_url');
+                    // Redirect to login page with logout parameter
+                    window.location.href = '/?logout=true';
+                });
+            }
+
+            // Check if user is logged in with valid session
+            const storedUsername = localStorage.getItem('ispace_username');
+            const authToken = localStorage.getItem('ispace_auth_token');
+            
+            if (storedUsername && authToken) {
+                // Check if token is still valid (less than 24 hours old)
+                const tokenTime = parseInt(authToken.replace('user_', ''));
+                const currentTime = Date.now();
+                const timeDiff = currentTime - tokenTime;
+                const oneDay = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+                
+                if (timeDiff >= oneDay) {
+                    // Token is expired, clear it and redirect to login
+                    localStorage.removeItem('ispace_username');
+                    localStorage.removeItem('ispace_auth_token');
+                    localStorage.removeItem('ispace_sheet_url');
+                    window.location.href = '/';
+                    return;
+                }
+            } else {
+                // User is not logged in, redirect to login page
+                window.location.href = '/';
+                return;
+            }
+
+            // Get URL parameters and user info
+            const urlParams = new URLSearchParams(window.location.search);
+            const topic = urlParams.get('topic') || 'algebra';
+            const username = localStorage.getItem('ispace_username') || 'anonymous';
+            
+            // Determine the appropriate level for the user
+            let level = urlParams.get('level');
+            
+            // If no level specified in URL, check user's progress and start from appropriate level
+            if (!level) {
+                // Get user's progress from localStorage or start from easy
+                const userProgress = JSON.parse(localStorage.getItem(`ispace_progress_${username}`) || '{}');
+                const topicProgress = userProgress[topic] || { currentLevel: 'easy', unlockedLevels: ['easy'] };
+                
+                // Start from the current level or easy if no progress
+                level = topicProgress.currentLevel || 'easy';
+                
+                console.log(`DEBUG: No level specified, using user progress for ${username}: ${level}`);
+            } else {
+                console.log(`DEBUG: Level specified in URL: ${level}`);
+                
+                // Check if user has access to this level
+                const userProgress = JSON.parse(localStorage.getItem(`ispace_progress_${username}`) || '{}');
+                const topicProgress = userProgress[topic] || { currentLevel: 'easy', unlockedLevels: ['easy'] };
+                
+                if (!topicProgress.unlockedLevels.includes(level)) {
+                    console.log(`DEBUG: User ${username} doesn't have access to ${level} level, redirecting to ${topicProgress.currentLevel}`);
+                    // Redirect to current level or easy
+                    window.location.href = `/quiz?topic=${topic}&level=${topicProgress.currentLevel || 'easy'}`;
+                    return;
+                }
+            }
+            
+            // Update quiz title
+            const quizTitle = document.getElementById('quiz-title');
+            quizTitle.textContent = `${topic.charAt(0).toUpperCase() + topic.slice(1)} - ${level.charAt(0).toUpperCase() + level.slice(1)}`;
+            
+            // Quiz state
+            let currentQuestionIndex = 0;
+            let totalQuestions = 5;
+            let timeRemaining = 120; // 2 minutes
+            let timer;
+            let score = 0;
+            let questions = [];
+            let userAnswers = [];
+            
+            // Update total questions display
+            document.getElementById('total-questions').textContent = totalQuestions;
+            
+            // Load questions from the new quiz API
+            async function loadQuestionsFromAPI() {
+                try {
+                    console.log(`Loading questions for ${topic}/${level}`);
+                    const response = await fetch(`/api/python/quiz/${topic}/${level}`);
+                    const data = await response.json();
+                    
+                    if (data.error) {
+                        console.error('Error loading questions:', data.error);
+                        document.getElementById('question-text').textContent = 'Error loading questions. Please try again.';
+                        return;
+                    }
+                    
+                    questions = data.questions || [];
+                    totalQuestions = questions.length;
+                    document.getElementById('total-questions').textContent = totalQuestions;
+                    
+                    if (questions.length > 0) {
+                        displayQuestion();
+                        startTimer();
+                    } else {
+                        document.getElementById('question-text').textContent = 'No questions available for this topic and level.';
+                    }
+                } catch (error) {
+                    console.error('Error loading questions:', error);
+                    document.getElementById('question-text').textContent = 'Error loading questions. Please try again.';
+                }
+            }
+            
+            // Display current question
+            function displayQuestion() {
+                if (currentQuestionIndex >= questions.length) {
+                    // Quiz completed
+                    finishQuiz();
+                    return;
+                }
+                
+                const question = questions[currentQuestionIndex];
+                document.getElementById('question-text').textContent = question.question;
+                document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+                document.getElementById('progress-fill').style.width = `${((currentQuestionIndex + 1) / totalQuestions) * 100}%`;
+                
+                // Check if it's a MCQ question (has options)
+                if (question.options) {
+                    displayMCQOptions(question);
+                } else {
+                    displayNumericalInput();
+                }
+            }
+            
+            // Display MCQ options
+            function displayMCQOptions(question) {
+                const optionsContainer = document.getElementById('options-container');
+                const answerSection = document.getElementById('answer-section');
+                
+                // Show options, hide numerical input
+                optionsContainer.style.display = 'block';
+                answerSection.style.display = 'none';
+                
+                // Clear previous options
+                optionsContainer.innerHTML = '';
+                
+                // Create option buttons
+                Object.entries(question.options).forEach(([key, value]) => {
+                    const optionBtn = document.createElement('button');
+                    optionBtn.className = 'option-button';
+                    optionBtn.textContent = `${key}: ${value}`;
+                    optionBtn.onclick = () => selectOption(key);
+                    optionsContainer.appendChild(optionBtn);
+                });
+            }
+            
+            // Display numerical input
+            function displayNumericalInput() {
+                const optionsContainer = document.getElementById('options-container');
+                const answerSection = document.getElementById('answer-section');
+                
+                // Show numerical input, hide options
+                optionsContainer.style.display = 'none';
+                answerSection.style.display = 'block';
+                
+                // Clear input
+                document.getElementById('answer-input').value = '';
+            }
+            
+            // Handle option selection for MCQ
+            function selectOption(selectedOption) {
+                const question = questions[currentQuestionIndex];
+                const isCorrect = selectedOption === question.answer;
+                const timeUsed = 120 - timeRemaining; // Calculate time used
+                
+                userAnswers.push({
+                    question: question.question,
+                    userAnswer: selectedOption,
+                    correctAnswer: question.answer,
+                    isCorrect: isCorrect
+                });
+                
+                if (isCorrect) {
+                    score += 20;
+                }
+                
+                // Log attempt to Google Sheets
+                logQuizAttempt(question.question, question.answer, selectedOption, isCorrect, timeUsed);
+                
+                showFeedback(isCorrect, selectedOption, question.answer);
+            }
+            
+            // Submit numerical answer
+            function submitNumericalAnswer() {
+                const userAnswer = parseFloat(document.getElementById('answer-input').value);
+                const question = questions[currentQuestionIndex];
+                const correctAnswer = parseFloat(question.answer);
+                const isCorrect = Math.abs(userAnswer - correctAnswer) < 0.01; // Allow small tolerance
+                const timeUsed = 120 - timeRemaining; // Calculate time used
+                
+                userAnswers.push({
+                    question: question.question,
+                    userAnswer: userAnswer,
+                    correctAnswer: correctAnswer,
+                    isCorrect: isCorrect
+                });
+                
+                if (isCorrect) {
+                    score += 20;
+                }
+                
+                // Log attempt to Google Sheets
+                logQuizAttempt(question.question, correctAnswer, userAnswer, isCorrect, timeUsed);
+                
+                showFeedback(isCorrect, userAnswer, correctAnswer);
+            }
+            
+            // Show feedback
+            function showFeedback(isCorrect, userAnswer, correctAnswer) {
+                // Stop timer
+                clearInterval(timer);
+                
+                const feedbackSection = document.getElementById('feedback-section');
+                const feedbackIcon = document.getElementById('feedback-icon');
+                const feedbackText = document.getElementById('feedback-text');
+                const feedbackExplanation = document.getElementById('feedback-explanation');
+                
+                if (isCorrect) {
+                    feedbackIcon.textContent = '✅';
+                    feedbackText.textContent = 'Correct!';
+                    feedbackExplanation.textContent = 'Great job! You answered correctly.';
+                } else {
+                    feedbackIcon.textContent = '❌';
+                    feedbackText.textContent = 'Incorrect';
+                    feedbackExplanation.textContent = `The correct answer was ${correctAnswer}.`;
+                }
+                
+                feedbackSection.style.display = 'block';
+                document.getElementById('submit-btn').style.display = 'none';
+            }
+            
+            // Start timer
+            function startTimer() {
+                timer = setInterval(updateTimer, 1000);
+            }
+            
+            // Update timer
+            function updateTimer() {
+                const minutes = Math.floor(timeRemaining / 60);
+                const seconds = timeRemaining % 60;
+                document.getElementById('timer-value').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeRemaining <= 0) {
+                    clearInterval(timer);
+                    // Time's up - submit automatically
+                    if (questions[currentQuestionIndex] && questions[currentQuestionIndex].options) {
+                        // MCQ question - auto-select first option
+                        selectOption(Object.keys(questions[currentQuestionIndex].options)[0]);
+                    } else {
+                        // Numerical question - submit with 0
+                        document.getElementById('answer-input').value = '0';
+                        submitNumericalAnswer();
+                    }
+                    return;
+                }
+                
+                timeRemaining--;
+            }
+            
+            // Update user progress
+            function updateUserProgress(score) {
+                const userProgress = JSON.parse(localStorage.getItem(`ispace_progress_${username}`) || '{}');
+                const topicProgress = userProgress[topic] || { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} };
+                
+                // Store the score for this level
+                if (!topicProgress.scores[level]) {
+                    topicProgress.scores[level] = [];
+                }
+                topicProgress.scores[level].push(score);
+                
+                // Update current level and unlock next level if score is good enough
+                if (score >= 50) { // 50% or higher to unlock next level
+                    const levels = ['easy', 'medium', 'hard'];
+                    const currentIndex = levels.indexOf(level);
+                    
+                    if (currentIndex < levels.length - 1) {
+                        const nextLevel = levels[currentIndex + 1];
+                        if (!topicProgress.unlockedLevels.includes(nextLevel)) {
+                            topicProgress.unlockedLevels.push(nextLevel);
+                            console.log(`DEBUG: Unlocked ${nextLevel} level for ${topic}`);
+                        }
+                        
+                        // Move to next level if current level is completed well
+                        if (score >= 70) {
+                            topicProgress.currentLevel = nextLevel;
+                            console.log(`DEBUG: Advanced to ${nextLevel} level for ${topic}`);
+                        }
+                    }
+                }
+                
+                // Save updated progress
+                userProgress[topic] = topicProgress;
+                localStorage.setItem(`ispace_progress_${username}`, JSON.stringify(userProgress));
+                
+                console.log(`DEBUG: Updated progress for ${username} - ${topic}:`, topicProgress);
+            }
+            
+            // Finish quiz
+            function finishQuiz() {
+                // Calculate final score
+                const finalScore = Math.round((score / (totalQuestions * 20)) * 100);
+                
+                // Update user progress
+                updateUserProgress(finalScore);
+                
+                // Redirect to results page
+                window.location.href = `/result?score=${finalScore}&topic=${topic}&level=${level}&total=${totalQuestions}&correct=${Math.round(score/20)}`;
+            }
+            
+            // Submit button functionality
+            document.getElementById('submit-btn').addEventListener('click', function() {
+                if (questions[currentQuestionIndex] && questions[currentQuestionIndex].options) {
+                    // MCQ question - show error if no option selected
+                    alert('Please select an option before submitting.');
+                } else {
+                    // Numerical question
+                    submitNumericalAnswer();
+                }
+            });
+            
+            // Enter key functionality for numerical input
+            document.getElementById('answer-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    submitNumericalAnswer();
+                }
+            });
+                
+                // Next button functionality
+                document.getElementById('next-btn').addEventListener('click', function() {
+                currentQuestionIndex++;
+                
+                if (currentQuestionIndex < totalQuestions) {
+                        // Reset timer
+                        timeRemaining = 120;
+                    startTimer();
+                        
+                        // Hide feedback, show submit
+                    document.getElementById('feedback-section').style.display = 'none';
+                        document.getElementById('submit-btn').style.display = 'block';
+                    
+                    // Display next question
+                    displayQuestion();
+                    } else {
+                    // Quiz completed
+                    finishQuiz();
+                    }
+                });
+            
+            // Log quiz attempt to Google Sheets
+            function logQuizAttempt(question, correctAnswer, userAnswer, isCorrect, timeUsed) {
+                const status = isCorrect ? 'Correct' : 'Wrong';
+                
+                console.log('DEBUG: logQuizAttempt called with:', {
+                    username, topic, level, question: question.substring(0, 50) + '...',
+                    correctAnswer, userAnswer, status, timeUsed
+                });
+                
+                // Check if username is available
+                if (!username || username === 'anonymous') {
+                    console.error('DEBUG: No valid username available for logging');
+                    return;
+                }
+                
+                const requestData = {
+                    username: username,
+                    topic: topic,
+                    level: level,
+                    question: question,
+                    correct_answer: correctAnswer,
+                    user_answer: userAnswer,
+                    status: status,
+                    time_used: timeUsed
+                };
+                
+                console.log('DEBUG: Sending request data:', requestData);
+                
+                fetch('/api/quiz/log-attempt', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(requestData)
+                })
+                .then(response => {
+                    console.log('DEBUG: Response status:', response.status);
+                    console.log('DEBUG: Response headers:', response.headers);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('DEBUG: Response data:', data);
+                    if (data.success) {
+                        console.log('Quiz attempt logged successfully');
+                    } else {
+                        console.error('Failed to log quiz attempt:', data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error logging quiz attempt:', error);
+                    console.error('DEBUG: Full error details:', error);
+                });
+            }
+            
+            // Debug button functionality
+            document.getElementById('test-log-btn').addEventListener('click', function() {
+                console.log('DEBUG: Testing quiz log manually');
+                fetch('/api/test-quiz-log', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('DEBUG: Test quiz log response:', data);
+                    alert(`Test result: ${data.success ? 'SUCCESS' : 'FAILED'}\nMessage: ${data.message}`);
+                })
+                .catch(error => {
+                    console.error('DEBUG: Test quiz log error:', error);
+                    alert('Test failed: ' + error.message);
+                });
+            });
+
+            document.getElementById('test-sheets-btn').addEventListener('click', function() {
+                console.log('DEBUG: Testing sheets connection');
+                fetch('/api/test-sheets')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('DEBUG: Test sheets response:', data);
+                    alert(`Sheets test: ${data.success ? 'SUCCESS' : 'FAILED'}\nMessage: ${data.message}\nUser count: ${data.user_count || 'N/A'}`);
+                })
+                .catch(error => {
+                    console.error('DEBUG: Test sheets error:', error);
+                    alert('Sheets test failed: ' + error.message);
+                });
+            });
+
+            document.getElementById('test-worksheet-btn').addEventListener('click', function() {
+                console.log('DEBUG: Testing worksheet for user:', username);
+                fetch(`/api/test-worksheet/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('DEBUG: Test worksheet response:', data);
+                    let message = `Worksheet test: ${data.success ? 'SUCCESS' : 'FAILED'}\n`;
+                    message += `Message: ${data.message}\n`;
+                    if (data.worksheet_name) message += `Worksheet: ${data.worksheet_name}\n`;
+                    if (data.row_count) message += `Rows: ${data.row_count}\n`;
+                    if (data.clean_username) message += `Clean username: ${data.clean_username}\n`;
+                    if (data.worksheet_exists_in_list !== undefined) message += `Exists in list: ${data.worksheet_exists_in_list}\n`;
+                    if (data.all_worksheets) message += `Total worksheets: ${data.all_worksheets.length}`;
+                    alert(message);
+                })
+                .catch(error => {
+                    console.error('DEBUG: Test worksheet error:', error);
+                    alert('Worksheet test failed: ' + error.message);
+                });
+            });
+
+            document.getElementById('find-worksheet-btn').addEventListener('click', function() {
+                console.log('DEBUG: Finding worksheet for user:', username);
+                fetch(`/api/find-worksheet/${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('DEBUG: Find worksheet response:', data);
+                    let message = `Find worksheet for: ${data.username}\n`;
+                    message += `Clean username: ${data.clean_username}\n`;
+                    message += `Exact matches: ${data.exact_matches.length}\n`;
+                    message += `Case-insensitive matches: ${data.case_insensitive_matches.length}\n`;
+                    message += `Partial matches: ${data.partial_matches.length}\n`;
+                    if (data.exact_matches.length > 0) message += `Exact: ${data.exact_matches.join(', ')}\n`;
+                    if (data.case_insensitive_matches.length > 0) message += `Case-insensitive: ${data.case_insensitive_matches.join(', ')}\n`;
+                    if (data.partial_matches.length > 0) message += `Partial: ${data.partial_matches.join(', ')}`;
+                    alert(message);
+                })
+                .catch(error => {
+                    console.error('DEBUG: Find worksheet error:', error);
+                    alert('Find worksheet failed: ' + error.message);
+                });
+            });
+
+            document.getElementById('test-progress-btn').addEventListener('click', function() {
+                console.log('DEBUG: Testing progress for user:', username);
+                const userProgress = JSON.parse(localStorage.getItem(`ispace_progress_${username}`) || '{}');
+                const topicProgress = userProgress[topic] || { currentLevel: 'easy', unlockedLevels: ['easy'], scores: {} };
+                
+                let message = `Progress for ${username} - ${topic}:\n`;
+                message += `Current level: ${topicProgress.currentLevel}\n`;
+                message += `Unlocked levels: ${topicProgress.unlockedLevels.join(', ')}\n`;
+                message += `Scores: ${JSON.stringify(topicProgress.scores)}\n`;
+                message += `\nAll topics progress:\n`;
+                
+                Object.keys(userProgress).forEach(topicKey => {
+                    const tp = userProgress[topicKey];
+                    message += `${topicKey}: ${tp.currentLevel} (${tp.unlockedLevels.join(', ')})\n`;
+                });
+                
+                console.log('DEBUG: Progress data:', userProgress);
+                alert(message);
+            });
+
+            // Load questions and start quiz
+            loadQuestionsFromAPI();
+        });
+    </script>
+</body>
+</html> 

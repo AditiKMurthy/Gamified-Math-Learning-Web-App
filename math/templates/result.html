@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iSpace Math - Results</title>
+    
+    <!-- Google Fonts - Orbitron for futuristic vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+            <!-- Custom CSS and JS -->
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header with glowing space-themed gradient background -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="app-title">iSpace Math</h1>
+            <nav class="navigation">
+                <ul class="nav-links">
+                                    <li><a href="/home" class="nav-link">Home</a></li>
+                <li><a href="/dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="/" class="nav-link" id="logout-link">Logout</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content">
+        <div id="content">
+            <!-- Results Section -->
+            <section class="results-section space-card">
+                <div class="results-header">
+                    <h2 class="results-title cosmic-text">Quiz Complete!</h2>
+                    <div class="results-subtitle">Great job completing the challenge</div>
+                </div>
+
+                <!-- XP Earned Display -->
+                <div class="xp-display">
+                    <div class="xp-icon">⭐</div>
+                    <div class="xp-amount" id="xp-amount">0</div>
+                    <div class="xp-label">XP Earned</div>
+                </div>
+
+                <!-- Performance Summary -->
+                <div class="performance-summary">
+                    <div class="summary-item">
+                        <span class="summary-label">Topic:</span>
+                        <span class="summary-value" id="topic-display">Algebra</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Level:</span>
+                        <span class="summary-value" id="level-display">Easy</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Score:</span>
+                        <span class="summary-value" id="score-display">0%</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">Time Taken:</span>
+                        <span class="summary-value" id="time-display">02:00</span>
+                    </div>
+                </div>
+
+                <!-- Achievement Message -->
+                <div class="achievement-message" id="achievement-message">
+                    <div class="achievement-icon">🏆</div>
+                    <div class="achievement-text">You've unlocked new knowledge!</div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <a href="/home" class="action-button home-button">
+                        <span class="button-icon">🏠</span>
+                        Return to Home
+                    </a>
+                    <a href="/dashboard" class="action-button dashboard-button">
+                        <span class="button-icon">📊</span>
+                        View Dashboard
+                    </a>
+                    <button id="next-level-btn" class="action-button next-level-button" style="display: none;">
+                        <span class="button-icon">🚀</span>
+                        <span id="next-level-text">Start Next Level</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer with copyright -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 iSpace Math. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Results functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const score = parseInt(urlParams.get('score')) || 0;
+            const topic = urlParams.get('topic') || 'algebra';
+            const level = urlParams.get('level') || 'easy';
+            
+            // Mark this level as completed if score is above 50%
+            if (score >= 50) {
+                // Get existing progress
+                const progress = JSON.parse(localStorage.getItem('ispace_progress') || '{}');
+                if (!progress[topic]) {
+                    progress[topic] = { easy: false, medium: false, hard: false };
+                }
+                progress[topic][level] = true;
+                localStorage.setItem('ispace_progress', JSON.stringify(progress));
+            }
+            
+            // Calculate XP based on score and level
+            const levelMultiplier = {
+                'easy': 1,
+                'medium': 2,
+                'hard': 3
+            };
+            
+            const baseXP = 50;
+            const xpEarned = Math.floor((score / 100) * baseXP * levelMultiplier[level]);
+            
+            // Update display elements
+            document.getElementById('xp-amount').textContent = xpEarned;
+            document.getElementById('topic-display').textContent = topic.charAt(0).toUpperCase() + topic.slice(1);
+            document.getElementById('level-display').textContent = level.charAt(0).toUpperCase() + level.slice(1);
+            document.getElementById('score-display').textContent = score + '%';
+            
+            // Show next level button if current level is completed and next level exists
+            const nextLevelBtn = document.getElementById('next-level-btn');
+            const nextLevelText = document.getElementById('next-level-text');
+            
+            if (score >= 50) {
+                if (level === 'easy') {
+                    nextLevelBtn.style.display = 'inline-flex';
+                    nextLevelText.textContent = 'Start Medium Level';
+                    nextLevelBtn.onclick = function() {
+                        window.location.href = `/quiz?topic=${topic}&level=medium`;
+                    };
+                } else if (level === 'medium') {
+                    nextLevelBtn.style.display = 'inline-flex';
+                    nextLevelText.textContent = 'Start Hard Level';
+                    nextLevelBtn.onclick = function() {
+                        window.location.href = `/quiz?topic=${topic}&level=hard`;
+                    };
+                }
+            }
+            
+            // Update achievement message based on score
+            const achievementMessage = document.getElementById('achievement-message');
+            const achievementText = achievementMessage.querySelector('.achievement-text');
+            const achievementIcon = achievementMessage.querySelector('.achievement-icon');
+            
+            if (score >= 90) {
+                achievementIcon.textContent = '🏆';
+                achievementText.textContent = 'Outstanding performance!';
+            } else if (score >= 70) {
+                achievementIcon.textContent = '🥇';
+                achievementText.textContent = 'Great work!';
+            } else if (score >= 50) {
+                achievementIcon.textContent = '🥈';
+                achievementText.textContent = 'Good effort!';
+            } else {
+                achievementIcon.textContent = '💪';
+                achievementText.textContent = 'Keep practicing!';
+            }
+            
+            // Store results in localStorage for dashboard
+            const username = localStorage.getItem('ispace_username') || 'Anonymous';
+            const currentTime = new Date().toISOString();
+            
+            // Get existing results or create new array
+            const existingResults = JSON.parse(localStorage.getItem('ispace_results') || '[]');
+            existingResults.push({
+                username: username,
+                topic: topic,
+                level: level,
+                score: score,
+                xp: xpEarned,
+                timestamp: currentTime
+            });
+            
+            localStorage.setItem('ispace_results', JSON.stringify(existingResults));
+            
+            // Update total XP
+            const currentXP = parseInt(localStorage.getItem('ispace_total_xp') || '0');
+            localStorage.setItem('ispace_total_xp', (currentXP + xpEarned).toString());
+            
+            // Animate XP counter
+            animateCounter('xp-amount', 0, xpEarned, 1000);
+            
+            function animateCounter(elementId, start, end, duration) {
+                const element = document.getElementById(elementId);
+                const startTime = performance.now();
+                
+                function updateCounter(currentTime) {
+                    const elapsed = currentTime - startTime;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    const current = Math.floor(start + (end - start) * progress);
+                    element.textContent = current;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    }
+                }
+                
+                requestAnimationFrame(updateCounter);
+            }
+            
+            // Add success notification
+            setTimeout(() => {
+                if (window.iSpaceMath && window.iSpaceMath.showNotification) {
+                    window.iSpaceMath.showNotification(`Congratulations! You earned ${xpEarned} XP!`, 'success');
+                }
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 
