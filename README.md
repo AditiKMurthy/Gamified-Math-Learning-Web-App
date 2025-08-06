@@ -2,11 +2,13 @@
 Gamified math learning web app for grades 9 &amp; 10. Features dynamic quizzes using SymPy, XP/badges, PDF resources, and real-time progress tracking via Google Sheets. Built with Flask, HTML/CSS/JS. Future: mobile app, leaderboards, more topics.
 
 1. Registration Page
+
 ![Registeration_page_img](https://github.com/AditiKMurthy/Gamified-Math-Learning-Web-App/blob/abf4e8504ae74e31e54f9dd0e27ad9e64cc058b2/1.%20register%20page.png)
 
 Get started by creating your account—simple, quick, and ready for adventure.
 We welcome every learner to join the gamified learning journey.
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 2. Login Page
 ![Login_page_img](https://github.com/AditiKMurthy/Gamified-Math-Learning-Web-App/blob/main/2.%20login%20page.png?raw=true)
